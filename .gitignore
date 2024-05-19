@@ -1,0 +1,40 @@
+# LaTeX auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.idx
+*.ind
+*.ilg
+*.blg
+*.bbl
+*.dvi
+*.synctex.gz
+*.run.xml
+*.fdb_latexmk
+*.snm
+*.nav
+*.vrb
+
+# Output files
+*.pdf
+
+# Docker files
+docker/*.tar
+docker/*.img
+
+# Backup files
+*~
+*.bak
+*.sav
+
+# OS-specific files
+.DS_Store
+Thumbs.db

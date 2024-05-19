@@ -1,0 +1,86 @@
+\documentclass[a5paper,12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{fontspec} % Для использования шрифтов
+\usepackage{polyglossia} % Для поддержки многоязычного текста
+\usepackage[a5paper, margin=0.75in]{geometry} % Устанавливаем размер страницы A5 и поля
+\usepackage{titlesec} % Для настройки заголовков
+\usepackage{lettrine} % Для создания красивых инициалов
+\usepackage{tocloft} % Для настройки оглавления
+\usepackage{xcolor} % Для настройки цветов
+\usepackage{hyperref} % Для создания гиперссылок в оглавлении
+\usepackage{bookmark}
+\usepackage{xpatch}
+
+\hypersetup{
+    pdfencoding=auto,
+    psdextra,
+    linktoc=all,
+    colorlinks=true,
+    linkcolor=black, % Устанавливаем цвет ссылок черным
+    urlcolor=black,
+    citecolor=black,
+    filecolor=black
+}
+
+\setdefaultlanguage{russian} % Устанавливаем русский язык по умолчанию
+
+% Устанавливаем основной шрифт и шрифт для кириллицы
+\setmainfont{Cormorant Garamond}
+\newfontfamily\cyrillicfont{Cormorant Garamond}
+\newfontfamily\headerfont{Cormorant Infant}
+
+\setcounter{tocdepth}{3} % Устанавливаем глубину оглавления до уровня paragraph
+
+% Явно указываем шрифт для начальных букв
+\renewcommand{\LettrineFontHook}{\cyrillicfont}
+
+% Настройка нумерации секций
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}
+
+% Настройка стиля заголовков с использованием шрифта для заголовков
+\titleformat{\section}{\normalfont\headerfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\headerfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\headerfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[block]{\normalfont\headerfont\normalsize\bfseries\centering}{\theparagraph}{1em}{}[]
+
+% Удаление переносов строк в texorpdfstring
+% \xpretocmd{\texorpdfstring}{\ignorespaces}{}{}
+% \xapptocmd{\texorpdfstring}{\unskip}{}{}
+
+% Уменьшение отступов в оглавлении
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsubsecindent}{15pt}
+\setlength{\cftsubsubsecindent}{30pt}
+\setlength{\cftparaindent}{45pt}
+
+% Уменьшение расстояний между заголовками в оглавлении
+\setlength{\cftbeforesecskip}{0.5em}
+\setlength{\cftbeforesubsecskip}{0.3em}
+\setlength{\cftbeforesubsubsecskip}{0.2em}
+\setlength{\cftbeforeparaskip}{0.1em}
+
+% % Настройка стилей оглавления для удаления переноса
+% \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+% \renewcommand{\cftsecaftersnum}{.}
+% \renewcommand{\cftsubsecaftersnum}{.}
+% \renewcommand{\cftsubsubsecaftersnum}{.}
+% \renewcommand{\cftparaaftersnum}{.}
+
+\makeatletter
+\renewcommand{\l@paragraph}{\@dottedtocline{4}{7em}{4em}}
+\makeatother
+
+\begin{document}
+
+\sloppy
+
+\tableofcontents % Создаем оглавление
+
+\clearpage % Добавляем разделитель после оглавления
+
+\input{karamazov.tex}
+
+\end{document}
