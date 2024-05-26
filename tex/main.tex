@@ -25,9 +25,9 @@
 \setdefaultlanguage{russian} % Устанавливаем русский язык по умолчанию
 
 % Устанавливаем основной шрифт и шрифт для кириллицы
-\setmainfont{Cormorant Garamond}
-\newfontfamily\cyrillicfont{Cormorant Garamond}
-\newfontfamily\headerfont{Cormorant Infant}
+\setmainfont{EB Garamond Regular}
+\newfontfamily\cyrillicfont{EB Garamond Regular}
+\newfontfamily\headerfont{EB Garamond Regular}
 
 \setcounter{tocdepth}{3} % Устанавливаем глубину оглавления до уровня paragraph
 
@@ -41,10 +41,17 @@
 \renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}
 
 % Настройка стиля заголовков с использованием шрифта для заголовков
-\titleformat{\section}{\normalfont\headerfont\Large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalfont\headerfont\large\bfseries}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\normalfont\headerfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
-\titleformat{\paragraph}[block]{\normalfont\headerfont\normalsize\bfseries\centering}{\theparagraph}{1em}{}[]
+\titleformat{\section}{\normalfont\headerfont\Large}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\headerfont\large}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\headerfont\normalsize}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[block]{\normalfont\headerfont\normalsize\centering}{\theparagraph}{1em}{}[]
+
+\renewcommand{\cftsecfont}{\headerfont\normalsize}
+\renewcommand{\cftsubsecfont}{\headerfont\normalsize}
+\renewcommand{\cftsubsubsecfont}{\headerfont\normalsize}
+\renewcommand{\cftparafont}{\headerfont\normalsize}
+\renewcommand{\bfseries}{}
+
 
 % Удаление переносов строк в texorpdfstring
 % \xpretocmd{\texorpdfstring}{\ignorespaces}{}{}

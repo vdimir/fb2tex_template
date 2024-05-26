@@ -26,5 +26,5 @@ This project provides a LaTeX template for converting FB2 (FictionBook 2) files 
 4. **Compile the LaTeX File**
 
    ```sh
-   docker run --rm -v $(pwd):/work -w /work latex-env xelatex main.tex
+   docker run --rm -v $(pwd)/tex:/work -w /work latex-env xelatex main.tex
    ```
